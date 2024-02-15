@@ -143,7 +143,7 @@ public void setupExtent()
 	@AfterMethod
 	public void teardown(ITestResult result)
 	{
-		extentTest.assignAuthor("AutomationTester1")
+		extentTest.assignAuthor("AutomationTester1-jaya")
 		
 		.assignCategory("Regression")
 		
