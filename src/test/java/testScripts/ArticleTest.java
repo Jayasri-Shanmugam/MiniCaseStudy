@@ -1,6 +1,6 @@
 package testScripts;
 
-import org.openqa.selenium.Alert;
+//import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -134,12 +134,9 @@ public void setupExtent()
 	
 		deleteArticle.deleteArticle();
 		
-		Alert alert=driver.switchTo().alert();
-		
-		Assert.assertEquals(alert.getText(), "Want to delete the article?");
-		
-		alert.accept();
+		Assert.assertEquals(deleteArticle.deleteCheck(), "Articles not available.");
 	}
+	
 	@AfterMethod
 	public void teardown(ITestResult result)
 	{
