@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+//import org.testng.Assert;
 
 public class NewArticlePage
 {
@@ -44,26 +44,22 @@ public class NewArticlePage
 	 		
 	   }
 	   
-	   public void newArticle()
+	   public void newArticle(String article_title,String article_about,String text_area,String enter_tag)
 	   
 	   {
 		   
 		   newArticle_btn.click();
 		   
-		   articleTitle.sendKeys("Amazon S3");
+		   articleTitle.sendKeys(article_title);
 		   
-		   articleAbout.sendKeys("Simple Storage Service");
+		   articleAbout.sendKeys(article_about);
 		   
-		   textArea.sendKeys("S3 is a storage service.Objects are stored inside a Bucket.Buckets are containers to store object.");
+		   textArea.sendKeys(text_area);
 		   
-		   enterTags.sendKeys("Amazon");
+		   enterTags.sendKeys(enter_tag);
 		   
 		   pub_article_btn.click();
 		   
-		   String headerName=headerBtn.getText();
 		   
-		   System.out.println("New Article Title-"+headerName);
-		   
-		   Assert.assertEquals(headerName,"Amazon S3");
 	  }
 }

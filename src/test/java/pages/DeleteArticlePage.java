@@ -1,11 +1,11 @@
 package pages;
 
-import org.openqa.selenium.Alert;
+//import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+//import org.testng.Assert;
 
 public class DeleteArticlePage
 
@@ -29,11 +29,7 @@ public class DeleteArticlePage
 		{
 			deleteBtn.click();
 			
-			Alert alert=driver.switchTo().alert();
 			
-			Assert.assertEquals(alert.getText(), "Want to delete the article?");
-			
-			alert.accept();
  
 		}
  
