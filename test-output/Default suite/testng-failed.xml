@@ -6,10 +6,10 @@
       <class name="testScripts.ArticleTest">
         <methods>
           <include name="setupExtent"/>
-          <include name="newArticle"/>
           <include name="finishExtent"/>
           <include name="setup"/>
           <include name="teardown"/>
+          <include name="InvalidloginTest"/>
         </methods>
       </class> <!-- testScripts.ArticleTest -->
     </classes>

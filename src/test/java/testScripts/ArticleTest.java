@@ -86,20 +86,36 @@ public void setupExtent()
 		TestBase.openUrl("https://conduit-realworld-example-app.fly.dev/");
 		
 	}
+@Test(priority=1)
+public void InvalidloginTest() 
+{
+	extentTest=extentReports.createTest("Log In Test");
+	
+	loginPage.InValidLoginTest("happymeshri@gmail.com","Jai@2");
+	
+	Assert.assertEquals(loginPage.checkInValidLogin(),"Wrong email/password combination");
+	
+}
 
-	@Test(priority=1)
-	public void loginTest() 
+
+	@Test(priority=2)
+	public void validloginTest() 
 	{
 		extentTest=extentReports.createTest("Log In Test");
-		loginPage.loginTest("happymeshri@gmail.com","Jai@28");
 		
-		String name=driver.findElement(By.xpath("//div[contains(text(),'Jai')]")).getText();
+		loginPage.ValidLoginTest("happymeshri@gmail.com","Jai@28");
 		
-		Assert.assertEquals(name,"Jai");
+		Assert.assertEquals(loginPage.checkValidLogin(),"Jai");
 		
 	}
+	@Test(priority=3)
+	public void duplicateArticleTest() {
+		 extentTest=extentReports.createTest("Duplicate Article Test");
+		newArticlePage.newArticle("Sample","Test","Manual Test","Test");
+		Assert.assertEquals(newArticlePage.duplicateArticleValidate(),"Title already exists..");
+	}
 	
-	@Test(priority=2)
+	@Test(priority=4)
 	public void newArticle() 
 	{
 		extentTest=extentReports.createTest("New Article Test");
@@ -113,7 +129,7 @@ public void setupExtent()
 		Assert.assertEquals(headerName,"Amazon S3");
 	}
 	
-	@Test(priority=3)
+	@Test(priority=5)
 	public void update_Article()
 	{
 		extentTest=extentReports.createTest("Update Article Test");
@@ -127,7 +143,7 @@ public void setupExtent()
 		Assert.assertEquals(headerName,"Amazon Services");
 	}
 	
-	@Test(priority=4)
+	@Test(priority=6)
 	public void delete_Article()
 	{
 		extentTest=extentReports.createTest("Delete Article Test");

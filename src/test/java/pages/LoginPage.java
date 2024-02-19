@@ -23,6 +23,13 @@ public class LoginPage
     
     WebElement loginbtn;
     
+    @FindBy(xpath="//div[contains(text(),'Jai')]")
+    
+    WebElement successlogin;
+    
+    @FindBy(xpath="//li[contains(text(),'Wrong email/password combination')]")
+    WebElement invalidlogin;
+    
     public LoginPage(WebDriver driver)
     
     {
@@ -31,17 +38,25 @@ public class LoginPage
 		
 	}
     
-    public void loginTest(String strmail,String strpassword)
-    
-    {
-  	
-  	  login_btn.click();
-  	  
-  	  email.sendKeys(strmail);
-  	  
-  	  password.sendKeys(strpassword);
-  	  
-  	  loginbtn.click();
-  	  
-   }
+    public void InValidLoginTest(String strmail,String strpassword) {
+      	
+    	  login_btn.click();
+    	  email.sendKeys(strmail);
+    	  password.sendKeys(strpassword);
+    	  loginbtn.click();
+    	}
+      public void ValidLoginTest(String strmail,String strpassword) {
+        	  email.clear();
+      	  email.sendKeys(strmail);
+      	  password.clear();
+      	  password.sendKeys(strpassword);
+      	  loginbtn.click();
+      	}
+     public String checkValidLogin() {
+      	 return successlogin.getText();
+      }
+   
+     public String checkInValidLogin() {
+  	   return invalidlogin.getText();
+     }
 }

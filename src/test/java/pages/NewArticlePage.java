@@ -36,6 +36,12 @@ public class NewArticlePage
 	   @FindBy(xpath="//h1[contains(text(),'Amazon S3')]")
 	   
 	   WebElement headerBtn;
+	   
+	   //@FindBy(xpath="//h1[contains(text(),'Sample')]")
+	  //  WebElement checktitle;
+	    
+	    @FindBy(xpath="//span[contains(text(),'Title already exists.. ')]")
+	    WebElement findingduplicate;
 	    
 	   public NewArticlePage(WebDriver driver)
 	   {
@@ -44,22 +50,22 @@ public class NewArticlePage
 	 		
 	   }
 	   
-	   public void newArticle(String article_title,String article_about,String text_area,String enter_tag)
-	   
-	   {
-		   
+	   public void newArticle(String title,String about,String text,String tags) {
 		   newArticle_btn.click();
-		   
-		   articleTitle.sendKeys(article_title);
-		   
-		   articleAbout.sendKeys(article_about);
-		   
-		   textArea.sendKeys(text_area);
-		   
-		   enterTags.sendKeys(enter_tag);
-		   
+		   articleTitle.clear();
+		   articleTitle.sendKeys(title);
+		   articleAbout.clear();
+		   articleAbout.sendKeys(about);
+		   textArea.clear();
+		   textArea.sendKeys(text);
+		   enterTags.clear();
+		   enterTags.sendKeys(tags);
 		   pub_article_btn.click();
-		   
-		   
-	  }
+	   }  
+	   public String newArticleValidate() {
+		  return headerBtn.getText();
+	   }
+	   public String duplicateArticleValidate() {
+		   return findingduplicate.getText();
+	   }
 }
